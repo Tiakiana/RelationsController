@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Relations
 {
-    class Relation<T>
+    public class Relation<T> : Subject
     {
-        T owner { get; } 
-        T other { get; }
+        public T owner { get; }
+        public T other { get; }
         //bool tradeAgreement { get; set; }
-
-        float relationship { get; set; }
         /// <summary>
         /// This Class can be used to make relationships between instances of object. You will have to define what type of object these relationships can be
         /// coupled to.
@@ -22,7 +20,7 @@ namespace Relations
 
         public Relation()
         {
-
+            
         }
         public Relation(T own, T oth)
         {
@@ -34,8 +32,6 @@ namespace Relations
             owner = own;
             other = oth;
             relationship = 0;
-           
-
         }
 
         public T GetOther() { return other; }
@@ -46,8 +42,8 @@ namespace Relations
         }
         public void SetRelationship(float chng)
         {
-            relationship += chng;
-            OnRelationshipChange(relationship, owner, other);
+            relationship = chng;
+          //  OnRelationshipChange(relationship, owner, other);
 
         }
 
