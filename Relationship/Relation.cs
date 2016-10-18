@@ -12,7 +12,9 @@ namespace Relations
         public T other { get; }
         //bool tradeAgreement { get; set; }
         /// <summary>
-        /// This Class can be used to make relationships between instances of object. You will have to define what type of object these relationships can be
+        /// This Class can be used to make relationships
+        /// between instances of object. You will have to 
+        /// define what type of object these relationships can be
         /// coupled to.
         /// </summary>
         /// <param name="own"></param>
@@ -43,7 +45,7 @@ namespace Relations
         public void SetRelationship(float chng)
         {
             relationship = chng;
-          //  OnRelationshipChange(relationship, owner, other);
+           OnRelationshipChange(relationship, owner, other);
 
         }
 

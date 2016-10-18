@@ -11,7 +11,6 @@ namespace Relations
     class RelationshipController<T>
     {
         private static volatile RelationshipController<T> inst;
-        private static List<Observer<T>> observers;
         private List<Relation<T>> IngameRelations;
         public static RelationshipController<T> GetRelaCont() {
             if (inst == null)
@@ -22,25 +21,23 @@ namespace Relations
         }
         public RelationshipController() {
             IngameRelations = new List<Relation<T>>();
-            observers = new List<Observer<T>>();
         }
 
          void AddRelationship(Relation<T> rela) {
-            IngameRelations.Add(rela);
-           // rela.OnRelationshipChange += ListenForChange;
+        
+           rela.OnRelationshipChange += ListenForChange;
         }
 
         public void RemoveRelationship(Relation<T> rela)
         {
-            IngameRelations.Remove(rela);
-           // rela.OnRelationshipChange -= ListenForChange;
+     
+          rela.OnRelationshipChange -= ListenForChange;
         }
 
         public void CreateRelation(T own, T oth) {
             Relation<T> r = new Relation<T>(own, oth);
-            ConObserver<T> co = new ConObserver<T>(r);
             AddRelationship(r);
-            observers.Add(co);
+           
         }
 
         public void ChangeRelationship(T own, T oth, float chng) {
@@ -53,13 +50,7 @@ namespace Relations
             OnRelationshipChange(relation, owne, othe);
 
         }
-        public void notifyAllObservers()
-        {
-            foreach (Observer<T> observer in observers)
-            {
-                observer.update();
-            }
-        }
+ 
         public delegate void BroadcastChange(float relationship, T Owne, T Othe);
         public event BroadcastChange OnRelationshipChange;
 

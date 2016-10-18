@@ -1,0 +1,5 @@
+C:\Users\Amaterasu\Source\Repos\RelationsController\Relationship\bin\Debug\Relationship.dll
+C:\Users\Amaterasu\Source\Repos\RelationsController\Relationship\bin\Debug\Relationship.pdb
+C:\Users\Amaterasu\Source\Repos\RelationsController\Relationship\obj\Debug\Relationship.csprojResolveAssemblyReference.cache
+C:\Users\Amaterasu\Source\Repos\RelationsController\Relationship\obj\Debug\Relationship.dll
+C:\Users\Amaterasu\Source\Repos\RelationsController\Relationship\obj\Debug\Relationship.pdb
